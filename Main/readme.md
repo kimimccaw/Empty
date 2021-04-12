@@ -43,9 +43,11 @@ After successfully installing the package and connecting start the python Shell 
     >>>
 
 Import the versuchsstand module::
+    
     >>> import versuchsstand
 
 Testing the Endress + Hauser group's equipment i.e. Cerabar, Promass, Thermophant::
+    
     >>> spi = mcp3008.init_adc()
     >>> print("temperature: ",thermophant.read_value(spi))
     temperature: 21.530277
@@ -55,17 +57,20 @@ Testing the Endress + Hauser group's equipment i.e. Cerabar, Promass, Thermophan
     flow velocity: -0.002397
 
 Testing the ambient sensor::
+    
     >>> i2c_bus = i2c_bus.init_i2c()
     >>> print("ambient temperature, humidity : ",sht85.read_ambient_values(i2c_bus))
     ambient temperature, humidity : 
 
 Testing the trime sensor::
+    
     >>> bus_trime = trime.init_trime()
     >>> moisture = trime.read_sensor(bus_trime)
     >>> print("Moisture: ", moisture)
     Moisture: 
 
 Testing the heater::
+    
     >>> heater.init_heater()
     >>> ##to turn on the heater give True in the parameter.
     >>> heater.heater_on_off(True)
@@ -75,6 +80,7 @@ Testing the heater::
     Heater OFF
 
 Testing the pump::
+    
     >>> instrument = modbus.init_pump()
     >>> #turning on the pump
     >>> pump.pump_on_off(instrument,True)
