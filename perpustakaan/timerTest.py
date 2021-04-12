@@ -1,6 +1,5 @@
 import time
 import csv
-#import pandas as pd
 import requests
 import os 
 import glob
@@ -100,4 +99,16 @@ def record_data(record_time, time_interval, pump_frequency, heat, remarks):
     print('Operation complete')
 
 
+if __name__ == "__main__":
+    duration = int(input("Please insert recording time: "))
+    interval = int(input("Please insert interval time for the data recording: "))
+    frequency = int(input("Insert pump frequency(100-300): "))
+    heat = input("Turn on the heater? (yes/no): ")
+    if heat.upper() == "yes".upper():
+        heat_on = True
+    else:
+        heat_on = False
 
+    remarks = input("Please insert your notes for this data recording: ")
+
+    record_data(duration,interval,frequency,heat_on,remarks)
