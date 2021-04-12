@@ -1,0 +1,286 @@
+<Test>:
+    do_default_tab: False
+
+    TabbedPanelItem:
+        text: 'DATA'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            BoxLayout:
+                padding: 10, 0, 0, 0
+                #spacing: 10
+                orientation: 'vertical'
+                size_hint_x: 1.2
+                Label:
+                    text: '[color=79cedc]Room humidity:[/color]'
+                    markup: True
+                    bold: True
+                    font_size: '25sp'
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'middle'
+                Label:
+                    text: '[color=79cedc]Moisture content:[/color]'
+                    markup: True
+                    bold: True
+                    font_size: '25sp'
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'middle'
+                Label:
+                    text: '[color=79cedc]Flow velocity:[/color]'
+                    markup: True
+                    bold: True
+                    font_size: '25sp'
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'middle'
+                Label:
+                    text: '[color=79cedc]Viscosity:[/color]'
+                    markup: True
+                    bold: True
+                    font_size: '25sp'
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'middle'
+
+            BoxLayout:
+                padding: 10, 0, 0, 0
+                #spacing: 10
+                orientation: 'vertical'
+                Label:
+                    id: label_text_room_humidity
+                    text: '[color=ef9121][b]XXX[/b] %[/color]'
+                    markup: True
+                    font_size: '35sp'
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'middle'
+                Label:
+                    id: label_text_moisture_content
+                    text: '[color=ef9121][b]XXX[/b] %[/color]'
+                    markup: True
+                    font_size: '35sp'
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'middle'
+                Label:
+                    id: label_text_flow_velocity
+                    text: '[color=ef9121][b]XXX[/b] m/s[/color]'
+                    markup: True
+                    font_size: '35sp'
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'middle'
+                Label:
+                    id: label_text_viscosity
+                    text: '[color=ef9121][b]XXX[/b] cP[/color]'
+                    markup: True
+                    font_size: '35sp'
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'middle'
+
+            BoxLayout:
+                padding: 10, 0, 0, 0
+                #spacing: 10
+                orientation: 'vertical'
+                size_hint_x: 1.3
+                Label:
+                    text: '[color=79cedc]Room temperature:[/color]'
+                    markup: True
+                    bold: True
+                    font_size: '25sp'
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'middle'
+                Label:
+                    text: '[color=79cedc]Motor frequency:[/color]'
+                    markup: True
+                    bold: True
+                    font_size: '25sp'
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'middle'
+                Label:
+                    text: '[color=79cedc]Temperature:[/color]'
+                    markup: True
+                    bold: True
+                    font_size: '25sp'
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'middle'
+                Label:
+                    text: '[color=79cedc]Pressure:[/color]'
+                    markup: True
+                    bold: True
+                    font_size: '25sp'
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'middle'
+
+            BoxLayout:
+                padding: 10, 0, 0, 0
+                #spacing: 10
+                orientation: 'vertical'
+                Label:
+                    id: label_text_room_temperature
+                    text: '[color=ef9121][b]XXX[/b] °C[/color]'
+                    markup: True
+                    font_size: '35sp'
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'middle'
+                Label:
+                    id: label_text_motor_frequency
+                    text: '[color=ef9121][b]XXX[/b] Hz[/color]'
+                    markup: True
+                    font_size: '35sp'
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'middle'
+                Label:
+                    id: label_text_temperature
+                    text: '[color=ef9121][b]XXX[/b] °C[/color]'
+                    markup: True
+                    font_size: '35sp'
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'middle'
+                Label:
+                    id: label_text_pressure
+                    text: '[color=ef9121][b]XXX[/b] Pa[/color]'
+                    markup: True
+                    font_size: '35sp'
+                    text_size: self.size
+                    halign: 'left'
+                    valign: 'middle'
+
+    TabbedPanelItem:
+        text: 'CONTROL'
+
+        BoxLayout:
+            orientation: 'vertical'
+            #spacing: 10
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            BoxLayout:
+                size_hint_y: 0.7
+                orientation: 'horizontal'
+
+                BoxLayout:
+                    padding: 20, 10, 20, 0
+                    orientation: 'vertical'
+                    Label:
+                        text: '[color=ef9121]Pump[/color]'
+                        markup: True
+                        bold: True
+                        font_size: '35sp'
+                    Switch:
+                        id: switch_pump
+                        active: False
+                        on_active: app.pump_on_off(self, self.active)
+                    Label:
+                        text: '[color=79cedc]Frequency [Hz][/color]'
+                        markup: True
+                        bold: True
+                        font_size: '25sp'
+                    Slider:
+                        id: slider_frequency
+                        disabled: True if switch_pump.active != True else False
+                        min: 10
+                        max: 25
+                        value: slider_flow_velocity.value * 32
+                        #on_value: slider_flow_velocity.value = self.value
+                        step: 1
+                        value_track: True
+                        value_track_color: [0, 0, 1, 1]
+                    Label:
+                        text: '[color=0000ff]' + str(format(slider_frequency.value, '.2f')) + '[/color]'
+                        markup: True
+                        bold: True
+                        font_size: '20sp'
+
+                BoxLayout:
+                    padding: 20, 10, 20, 0
+                    orientation: 'vertical'
+                    Label:
+                        text: '[color=ef9121]Heater[/color]'
+                        markup: True
+                        bold: True
+                        font_size: '35sp'
+                    Switch:
+                        id: switch_heater
+                        active: False
+                        on_active: app.heater_on_off(self.active)
+                    Label:
+                        text: '[color=79cedc]Temperature [°C][/color]'
+                        markup: True
+                        bold: True
+                        font_size: '25sp'
+                    Slider:
+                        id: slider_heater
+                        disabled: True if switch_heater.active != True else False
+                        min: 20
+                        max: 45
+                        value: 20
+                        step: 1
+                        value_track: True
+                        value_track_color: [0, 0, 1, 1]
+                    Label:
+                        text: '[color=0000ff]' + str(slider_heater.value) + '[/color]'
+                        markup: True
+                        bold: True
+                        font_size: '20sp'
+
+            BoxLayout:
+                size_hint_y: 0.3
+                orientation: 'horizontal'
+
+                BoxLayout:
+                    padding: 20, 0, 20, 0
+                    orientation: 'vertical'
+                    Label:
+                        text: '[color=79cedc]Flow velocity [m/s][/color]'
+                        markup: True
+                        bold: True
+                        font_size: '25sp'
+
+                    Slider:
+                        id: slider_flow_velocity
+                        disabled: True if switch_pump.active != True else False
+                        min: 0.31
+                        #max: 0.625
+                        max: 0.78
+                        value: slider_frequency.value / 32
+                        step: 0.01
+                        value_track: True
+                        value_track_color: [0, 0, 1, 1]
+                    Label:
+                        text: '[color=0000ff]' + str(format(slider_flow_velocity.value, '.2f')) + '[/color]'
+                        markup: True
+                        bold: True
+                        font_size: '20sp'
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    Label:
+                        text: '[color=ef9121]Moisture Sensor[/color]'
+                        markup: True
+                        bold: True
+                        font_size: '35sp'
+                    Switch:
+                        disabled: True
+                        active: True
